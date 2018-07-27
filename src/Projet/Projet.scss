@@ -1,0 +1,21 @@
+h2 {
+  text-decoration-line: underline;
+  color: purple;
+}
+.projet {
+  font-family: "Leelawadee UI" ;
+  border: solid purple 3px;
+  border-radius: 30px;
+
+}
+.active {
+  background-color: darkcyan;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+}
+img {
+  max-width: 15em;
+  height: auto;
+  border-radius: 80px;
+}

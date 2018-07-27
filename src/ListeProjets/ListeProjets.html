@@ -1,0 +1,47 @@
+<section class="liste-projets">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <form class="form-inline">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-binoculars"></i></span>
+        </div>
+        <!--champ de recherche-->
+        <input type="text" class="form-control" placeholder="Rechercher…" size="30" v-model="search">
+        <span id="newProject">
+         <div>
+  <b-btn v-b-modal.modal1>Créer un nouveau projet</b-btn>
+             <modal v-on:nouveauProjet="add"></modal>
+         </div>
+        </span>
+      </div>
+    </form>
+  </nav>
+  <div class="container">
+    <div>
+      <table class="table table-hover table-bordered">
+        <thead>
+        <th>Liste des projets</th>
+        <th>Date de création <i id="up" class="fas fa-caret-up" @click="filterByDate"></i> <i id="down" class="fas fa-caret-down" @click="filterReverse"></i>
+        </th>
+        <th>Afficher un projet</th>
+        <th>Modifier un projet</th>
+        <th>Supprimer un projet</th>
+        </thead>
+        <tr v-for="listeProjet in listFiltered">
+          <td>{{listeProjet.name}}</td>
+          <td>{{listeProjet.createdAt}}</td>
+          <td> <router-link :to="{name:'detailProjet', params:{listeProjet}}">
+            <button class="btn btn-info">Afficher</button>
+          </router-link></td>
+          <td>
+            <b-btn v-b-modal.modal2>Modifier</b-btn>
+          </td>
+          <td><i class="fa fa-trash-alt" @click="supprime(listeProjet.id)"></i></td>
+        </tr>
+      </table>
+      <modalUpdate></modalUpdate>
+    </div>
+  </div>
+</section>
+
+

@@ -1,0 +1,28 @@
+<section>
+  <div id="pres" class="container col-sm-7">
+    <div :class="{ active : listeProjet.isActive}">
+      <div class="projet">
+        <h2>Nom du projet : </h2>
+        <h3>{{ listeProjet.name }}</h3>
+        <br>
+        <div>
+          <img :src="listeProjet.creator.picture" />
+        </div>
+        <br>
+        <p>Nom de l'auteur : <b>{{listeProjet.creator.name}}</b></p>
+
+        <br><p>{{listeProjet.description}}</p>
+        <p>Photos des collaborateurs : </p>
+        <span v-for="photo in listeProjet.collaborators"><img :src="photo.picture" /></span>
+        <div class="checkbox">
+          <br>
+          <b-form-checkbox v-model="listeProjet.isActive">
+            <label v-if="listeProjet.isActive">Projet actif</label>
+            <label v-else="!listeProjet.isActive">Projet non actif</label>
+          </b-form-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
